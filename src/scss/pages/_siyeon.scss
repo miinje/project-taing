@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "./../utils" as *;
+@use "./../base" as *;
+
+body {
+  background: $black;
+  overflow: hidden;
+}
+
+.popular, .livechannel {
+  width: 105vw;
+  margin-left: 3%;
+  padding-bottom: 3%;
+  overflow: hidden;
+  h2 {
+    color: $white;
+    font-size: rem(24px);
+    font-weight: 700;
+    margin-bottom: rem(16px);
+  }
+
+  &__list {
+    list-style: none;
+    @include flexbox;
+    gap: 1%;
+    font-size: rem(16px);
+    color: $gray1;
+    counter-reset: rank;
+  }
+
+  &__item {
+    width: rem(240px);
+    overflow: hidden;
+    counter-increment: rank;
+    position: relative;
+
+    &Title {
+      padding: 3% 0;
+      padding-left: 25%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__item::before {
+    content: counter(rank);
+    color: $white;
+    font-size: rem(60px);
+    font-weight: 700;
+    font-style: italic;
+    position: absolute;
+    bottom: -4%;
+    left: 0;
+  }
+
+  &__itemContainer {
+    @include flexbox($direction:column);
+    padding-top: 2%;
+    padding-left: 23%;
+    gap: rem(3px);
+  }
+}
+
+
+.livechannel {
+
+  &__itemTitle {
+    padding: 0;
+    color: $white;
+  }
+
+  &__itemContent {
+    color: $gray2;
+    font-size: rem(13px);
+  }
+
+  &__itemRating {
+    color: $gray3;
+    font-size: rem(12px);
+  }
+
+  &__item::before {
+    bottom: -5%;
+    left: 0;
+  }
+}
