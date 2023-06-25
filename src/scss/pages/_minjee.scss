@@ -1,11 +1,40 @@
 @use "./../utils" as *;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+.minjee {
+  background: black;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+}
 
 .a11yHidden {
   @include a11yHidden();
 }
 
-.only_list,
-.event_list {
-  list-style: none;
+.title {
+  margin-bottom: rem(12px);
+  font-size: rem(28px);
+  font-weight: 400;
 }
 
+.list {
+  @include flexbox;
+  gap: rem(16px);
+  width: 105vw;
+  margin-bottom: rem(36px);
+}
+
+.only {
+  padding-left: rem(70px);
+}
+
+.event {
+  padding-left: rem(70px);
+}
+
+.sports {
+  // background: pink;
+  padding: 36px 70px;
+}
