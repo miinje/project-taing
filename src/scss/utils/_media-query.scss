@@ -3,8 +3,9 @@
 
 // Breakpoints
 $breakpoints: (
+  xs: 320px,
   sm: 576px,
-  md: 768px,
+  md: 769px,
   lg: 992px,
   xl: 1200px,
   xxl: 1400px,
@@ -58,9 +59,9 @@ $breakpoints: (
 }
 
 // 미디어 쿼리 중단점 (Breakpoints) --------------------------------------------------------------- /
-$break: 768px;
+$break: 769px;
 
-@mixin mobile {
+@mixin tablet {
   @media (max-width: #{$break - 1}) {
     @content;
   }
@@ -70,10 +71,20 @@ $break: 768px;
     @content;
   }
 }
+@mixin mobile {
+  @media (max-width: #{$break - 448}) {
+    @content;
+  }
+}
 
 @mixin media($media) {
-  @if $media == "mobile" {
+  @if $media == "tablet" {
     @media (max-width: ($break - 1)) {
+      @content;
+    }
+  }
+  @if $media == "mobile" {
+    @media (max-width: ($break - 448)) {
       @content;
     }
   }
@@ -82,7 +93,7 @@ $break: 768px;
       @content;
     }
   }
-  @if $media != "mobile" and $media != "desktop" {
+  @if $media != "mobile" and $media != "desktop" and $media != "tablet" {
     @error '미디어 유형이 유효하지 않습니다.';
   }
 }
