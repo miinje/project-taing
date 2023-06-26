@@ -1,1 +1,79 @@
-// header.scss
+@use "./../utils/" as *;
+@use "./../base/" as *;
+
+
+.appHeader {
+  background: #000;
+  display: flex;
+  white-space: nowrap;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 3.7vw ;
+  padding-right: 3.7vw ;
+  font-size: rem(20px);
+  color: $gray1;
+
+  @include tablet {
+    height: 56px;
+  }
+  @include mobile {
+    height: 40px;
+  }
+
+}
+
+
+.headerWrapper {
+  display: flex;
+  width: 80vw;
+  gap: 3vw;
+  align-items: center;
+  @include mobile {
+    gap: 3.4vw;
+  }
+}
+
+
+.appHeader__menu {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+
+  @include tablet{
+    gap: 3.4vw;
+  }
+}
+
+.live {
+  display: flex;
+  align-items: center;
+  gap: rem(4px);
+}
+
+.logo_img {
+  width: rem(130px);
+  
+  @include mobile {
+    min-width: rem(46px);
+  }  
+}
+
+.searchProfile {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 2vw;
+  
+  &__img {
+    width: rem(52px);
+  }
+}
+
+
+.mobile--hidden {
+
+  @include mobile {
+    display: none;
+  }
+}
