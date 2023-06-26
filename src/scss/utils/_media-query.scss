@@ -1,8 +1,8 @@
-// media-query.scss
 @use "sass:map";
 
 // Breakpoints
 $breakpoints: (
+  xs: 320px,
   sm: 576px,
   md: 768px,
   lg: 992px,
@@ -10,134 +10,44 @@ $breakpoints: (
   xxl: 1400px,
 );
 
-@function errorMessage($breakpoint-name) {
-  @return "#{$breakpoint-name} : 중단점이 유효하지 않습니다.";
-}
-
-@mixin respond-from($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-
-    @media (min-width: $breakpoint-value) {
-      @content;
-    }
-  } @else {
-    @error errorMessage($breakpoint);
-  }
-}
-
-@mixin respond-until($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-
-    @media (max-width: ($breakpoint-value - 1)) {
-      @content;
-    }
-  } @else {
-    @error errorMessage($breakpoint);
-  }
-}
-
-@mixin respond-range($from, $until) {
-  @if map.has-key($breakpoints, $from) and map.has-key($breakpoints, $until) {
-    $from-value: map.get($breakpoints, $from);
-    $until-value: map.get($breakpoints, $until);
-
-    @media (min-width: $from-value) and (max-width: ($until-value - 1)) {
-      @content;
-    }
-  } @else {
-    @if (map.has-key($breakpoints, $from) == false) {
-      @error errorMessage($from);
-    }
-
-    @if (map.has-key($breakpoints, $until) == false) {
-      @error errorMessage($until);
-    }
-  }
-}
-
 // 미디어 쿼리 중단점 (Breakpoints) --------------------------------------------------------------- /
-$break: 768px;
+$break: map.get($breakpoints, md); // md breakpoint 선택
 
 @mixin mobile {
-  @media (max-width: #{$break - 1}) {
+  @media (max-width: #{map.get($breakpoints, md)}) {
     @content;
   }
 }
+
+@mixin tablet {
+  @media (min-width: #{map.get($breakpoints, md) + 1}) and (max-width: #{map.get($breakpoints, xl)}) {
+    @content;
+  }
+}
+
 @mixin desktop {
-  @media (min-width: #{$break}) {
+  @media (min-width: #{map.get($breakpoints, xl) + 1}) {
     @content;
   }
 }
-@use "sass:map";
 
-// Breakpoints
-$breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-);
-
-@function errorMessage($breakpoint-name) {
-  @return "#{$breakpoint-name} : 중단점이 유효하지 않습니다.";
-}
-
-@mixin respond-from($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-
-    @media (min-width: $breakpoint-value) {
+@mixin media($media) {
+  @if $media == "tablet" {
+    @media (min-width: #{map.get($breakpoints, md) + 1}) and (max-width: #{map.get($breakpoints, xl)}) {
       @content;
     }
-  } @else {
-    @error errorMessage($breakpoint);
   }
-}
-
-@mixin respond-until($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-
-    @media (max-width: ($breakpoint-value - 1)) {
+  @if $media == "mobile" {
+    @media (max-width: #{map.get($breakpoints, md)}) {
       @content;
     }
-  } @else {
-    @error errorMessage($breakpoint);
   }
-}
-
-@mixin respond-range($from, $until) {
-  @if map.has-key($breakpoints, $from) and map.has-key($breakpoints, $until) {
-    $from-value: map.get($breakpoints, $from);
-    $until-value: map.get($breakpoints, $until);
-
-    @media (min-width: $from-value) and (max-width: ($until-value - 1)) {
+  @if $media == "desktop" {
+    @media (min-width: #{map.get($breakpoints, lg) + 1}) {
       @content;
     }
-  } @else {
-    @if (map.has-key($breakpoints, $from) == false) {
-      @error errorMessage($from);
-    }
-
-    @if (map.has-key($breakpoints, $until) == false) {
-      @error errorMessage($until);
-    }
   }
-}
-
-// 미디어 쿼리 중단점 (Breakpoints) --------------------------------------------------------------- /
-$break: 768px;
-
-@mixin mobile {
-  @media (max-width: #{$break - 1}) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (min-width: #{$break}) {
-    @content;
+  @if $media != "mobile" and $media != "desktop" and $media != "tablet" {
+    @error '미디어 유형이 유효하지 않습니다.';
   }
 }
