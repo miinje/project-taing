@@ -1,16 +1,17 @@
 @use "./../utils/" as *;
 @use "./../base/" as *;
 
+body {
+  background: #000;
+}
 
 .appHeader {
-  background: #000;
   display: flex;
   white-space: nowrap;
   height: 100px;
   justify-content: space-between;
   align-items: center;
-  padding-left: 3.7vw ;
-  padding-right: 3.7vw ;
+  margin: 2% 3%;
   font-size: rem(20px);
   color: $gray1;
 
@@ -18,7 +19,7 @@
     height: 56px;
   }
   @include mobile {
-    height: 40px;
+    height: 45px;
   }
 
 }
@@ -26,7 +27,6 @@
 
 .headerWrapper {
   display: flex;
-  width: 80vw;
   gap: 3vw;
   align-items: center;
   @include mobile {
@@ -51,7 +51,7 @@
   gap: rem(4px);
 }
 
-.logo_img {
+h1 {
   width: rem(130px);
   
   @include mobile {
