@@ -1,0 +1,8 @@
+@use "sass:math";
+@use "./../utils" as *;
+@use "./../base" as *;
+
+body {
+  background: $black;
+  overflow: hidden;
+}
