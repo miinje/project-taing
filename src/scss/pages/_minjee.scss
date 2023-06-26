@@ -4,7 +4,7 @@
 
 .minjee {
   background: black;
-  height: 100%;
+  height: 100vh;
   color: white;
   overflow: hidden;
 }
@@ -14,27 +14,38 @@
 }
 
 .title {
-  margin-bottom: rem(12px);
-  font-size: rem(28px);
-  font-weight: 400;
+  margin-bottom: 1%;
+
+  @include desktop {
+    @include titleFont(1.3vw, 700, 140%);
+  }
+
+  @include tablet {
+    @include titleFont(1vw, 700, 140%);
+  }
+  
+  @include mobile {
+    @include titleFont(0.4vw, 600, 150%);
+  }
 }
 
 .list {
   @include flexbox;
-  gap: rem(16px);
+  gap: 1%;
+  margin-bottom: 2%;
   width: 105vw;
-  margin-bottom: rem(36px);
 }
 
 .only {
-  padding-left: rem(70px);
+  padding-left: 5%;
 }
 
 .event {
-  padding-left: rem(70px);
+  padding-left: 5%;
 }
 
 .sports {
-  // background: pink;
-  padding: 36px 70px;
+  // background: green;
+  @include paddingX(5%);
+  @include paddingY(2%);
 }
