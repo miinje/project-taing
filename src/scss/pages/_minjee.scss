@@ -17,35 +17,68 @@
   margin-bottom: 1%;
 
   @include desktop {
-    @include titleFont(1.3vw, 700, 140%);
+    // background: pink;
+    @include titleFont(1.2vw, 700, 140%);
   }
 
   @include tablet {
-    @include titleFont(1vw, 700, 140%);
+    // background: yellow;
+    @include titleFont(1.7vw, 700, 140%);
   }
   
   @include mobile {
-    @include titleFont(0.4vw, 600, 150%);
+    // background: blue;
+    @include titleFont(2.5vw, 600, 150%);
   }
 }
 
-.list {
+
+.only {
+  padding-left: 3%;
+
+  &__list {
   @include flexbox;
   gap: 1%;
   margin-bottom: 2%;
-  width: 105vw;
-}
 
-.only {
-  padding-left: 5%;
+  @include desktop {
+    width: 105vw; 
+  }
+
+  @include tablet {
+    width: 160vw;
+  }
+
+  @include mobile {
+    width: 320vw;
+  }
+  }
 }
 
 .event {
-  padding-left: 5%;
+  padding-left: 3%;
+
+  &__list {
+  @include flexbox;
+  gap: 1%;
+  margin-bottom: 2%;
+
+  @include desktop {
+    width: 110vw; 
+  }
+
+  @include tablet {
+    width: 170vw;
+  }
+
+  @include mobile {
+    width: 270vw;
+  }
+  }
 }
 
 .sports {
   // background: green;
-  @include paddingX(5%);
+  @include paddingX(3%);
   @include paddingY(2%);
 }

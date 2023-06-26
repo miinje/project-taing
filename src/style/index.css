@@ -32,9 +32,17 @@ legend {
 .title {
   margin-bottom: 1%;
 }
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
   .title {
-    font-size: 1.3vw;
+    font-size: 1.2vw;
+    font-weight: 700;
+    line-height: 140%;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .title {
+    font-size: 1.7vw;
     font-weight: 700;
     line-height: 140%;
     font-family: "Noto Sans KR", sans-serif;
@@ -42,42 +50,70 @@ legend {
 }
 @media (max-width: 768px) {
   .title {
-    font-size: 1vw;
-    font-weight: 700;
-    line-height: 140%;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-}
-@media (max-width: 321px) {
-  .title {
-    font-size: 0.4vw;
+    font-size: 2.5vw;
     font-weight: 600;
     line-height: 150%;
     font-family: "Noto Sans KR", sans-serif;
   }
 }
 
-.list {
+.only {
+  padding-left: 3%;
+}
+.only__list {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: stretch;
   gap: 1%;
   margin-bottom: 2%;
-  width: 105vw;
 }
-
-.only {
-  padding-left: 5%;
+@media (min-width: 1201px) {
+  .only__list {
+    width: 105vw;
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .only__list {
+    width: 160vw;
+  }
+}
+@media (max-width: 768px) {
+  .only__list {
+    width: 320vw;
+  }
 }
 
 .event {
-  padding-left: 5%;
+  padding-left: 3%;
+}
+.event__list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1%;
+  margin-bottom: 2%;
+}
+@media (min-width: 1201px) {
+  .event__list {
+    width: 110vw;
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .event__list {
+    width: 170vw;
+  }
+}
+@media (max-width: 768px) {
+  .event__list {
+    width: 270vw;
+  }
 }
 
 .sports {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-top: 2%;
   padding-bottom: 2%;
 }
