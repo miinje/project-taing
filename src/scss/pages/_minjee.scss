@@ -17,17 +17,14 @@
   margin-bottom: 1%;
 
   @include desktop {
-    // background: pink;
     @include titleFont(1.2vw, 700, 140%);
   }
 
   @include tablet {
-    // background: yellow;
     @include titleFont(1.7vw, 700, 140%);
   }
   
   @include mobile {
-    // background: blue;
     @include titleFont(2.5vw, 600, 150%);
   }
 }
@@ -78,7 +75,6 @@
 }
 
 .sports {
-  // background: green;
   @include paddingX(3%);
   @include paddingY(2%);
 }
