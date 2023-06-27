@@ -32,22 +32,22 @@ $break: map.get($breakpoints, md); // md breakpoint 선택
 }
 
 @mixin media($media) {
-  @if $media =="tablet" {
+  @if $media == "tablet" {
     @media (min-width: #{map.get($breakpoints, md) + 1}) and (max-width: #{map.get($breakpoints, xl)}) {
       @content;
     }
   }
-  @if $media =="mobile" {
+  @if $media == "mobile" {
     @media (max-width: #{map.get($breakpoints, md)}) {
       @content;
     }
   }
-  @if $media =="desktop" {
+  @if $media == "desktop" {
     @media (min-width: #{map.get($breakpoints, lg) + 1}) {
       @content;
     }
   }
-  @if $media !="mobile" and $media !="desktop" and $media !="tablet" {
+  @if $media != "mobile" and $media != "desktop" and $media != "tablet" {
     @error '미디어 유형이 유효하지 않습니다.';
   }
 }
