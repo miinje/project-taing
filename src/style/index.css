@@ -367,15 +367,17 @@ legend {
   margin: -1px;
 }
 
-.appHeader {
+body {
   background: #000;
+}
+
+.appHeader {
   display: flex;
   white-space: nowrap;
   height: 100px;
   justify-content: space-between;
   align-items: center;
-  padding-left: 3.7vw;
-  padding-right: 3.7vw;
+  margin: 1.5% 4%;
   font-size: 1.25rem;
   color: #C4C4C4;
 }
@@ -386,13 +388,12 @@ legend {
 }
 @media (max-width: 768px) {
   .appHeader {
-    height: 40px;
+    height: 45px;
   }
 }
 
 .headerWrapper {
   display: flex;
-  width: 80vw;
   gap: 3vw;
   align-items: center;
 }
@@ -402,30 +403,20 @@ legend {
   }
 }
 
+h1 {
+  width: 8.125rem;
+}
+
 .appHeader__menu {
   display: flex;
   align-items: center;
   gap: 3vw;
-}
-@media (min-width: 769px) and (max-width: 1200px) {
-  .appHeader__menu {
-    gap: 3.4vw;
-  }
 }
 
 .live {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-}
-
-.logo_img {
-  width: 8.125rem;
-}
-@media (max-width: 768px) {
-  .logo_img {
-    min-width: 2.875rem;
-  }
 }
 
 .searchProfile {
